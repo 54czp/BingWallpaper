@@ -3,8 +3,8 @@ Param (
 #	 $WallpaperPath = $env:WallpaperPath,
 #    $WallpaperPath = "$pwd\Pictures",
 #    $WallpaperPath = "$env:USERPROFILE\Pictures",
-    $WallpaperPath = "$pwd\Pictures\zh",
-    $WallpaperPath2 = "$pwd\Pictures\en",
+    $WallpaperPath = "$PSScriptRoot\Pictures\zh",
+    $WallpaperPath2 = "$PSScriptRoot\Pictures\en",
 
 #    $WallpaperResolution = ($env:WallpaperResolution, '1920x1080' | Select-Object -First 1),
 #    $WallpaperResolution = '1920x1200',
