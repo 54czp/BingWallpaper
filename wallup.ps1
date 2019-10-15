@@ -4,7 +4,7 @@ Param (
 #    $WallpaperPath = "$pwd\Pictures",
 #    $WallpaperPath = "$env:USERPROFILE\Pictures",
     $WallpaperPath = "$PSScriptRoot\Pictures\zh",
-    $WallpaperPath2 = "$PSScriptRoot\Pictures\en",
+#    $WallpaperPath2 = "$PSScriptRoot\Pictures\en",
 
 #    $WallpaperResolution = ($env:WallpaperResolution, '1920x1080' | Select-Object -First 1),
 #    $WallpaperResolution = '1920x1200',
@@ -39,7 +39,7 @@ Invoke-WebRequest "www.bing.com$($Bing.images.image.urlBase)_$WallpaperResolutio
 (Add-Type -MemberDefinition '[DllImport("user32.dll")]public static extern bool SystemParametersInfo (uint uiAction, uint uiParam, String pvParam, uint fWinIni);' -Name 'Params' -PassThru)::SystemParametersInfo(20, 0, $WallpaperPath, 3)
 
 
-$WallpaperPath2 += '\wallpaper'+$date+'en'+'.jpg'
+#$WallpaperPath2 += '\wallpaper'+$date+'en'+'.jpg'
 # Download wallpaper
-[xml]$Bing = Invoke-WebRequest "www.bing.com/HPImageArchive.aspx?n=1&idx=$DaysAgo&ensearch=1" -UseBasicParsing
-Invoke-WebRequest "www.bing.com$($Bing.images.image.urlBase)_$WallpaperResolution.jpg" -UseBasicParsing -OutFile $WallpaperPath2
+#[xml]$Bing = Invoke-WebRequest "www.bing.com/HPImageArchive.aspx?n=1&idx=$DaysAgo&ensearch=1" -UseBasicParsing
+#Invoke-WebRequest "www.bing.com$($Bing.images.image.urlBase)_$WallpaperResolution.jpg" -UseBasicParsing -OutFile $WallpaperPath2
