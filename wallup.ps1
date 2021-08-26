@@ -29,11 +29,12 @@ Param (
 $date = Get-Date -Format 'yyyy_MM_dd_'
 
 #自动创建默认文件夹
-if (!(Test-Path $WallpaperPath -PathType Container)) { 
+if (!(Test-Path $WallpaperPath -PathType Container)) 
     New-Item -ItemType Directory -Force -Path $WallpaperPath
-} 
+
 
 $WallpaperPath1 = $WallpaperPath+'\wallpaper'+$date+'zh'+'.jpg'
+
 # Download wallpaper
 if (!(Test-Path $WallpaperPath1)){
 [xml]$Bing = Invoke-WebRequest "www.bing.com/HPImageArchive.aspx?n=1&idx=$DaysAgo&ensearch=0" -UseBasicParsing
