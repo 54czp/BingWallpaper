@@ -4,8 +4,7 @@ Param (
 #    $WallpaperPath = "$pwd\Pictures",
 #    $WallpaperPath = "$env:USERPROFILE\Pictures",
     $WallpaperPath = "$PSScriptRoot\Pictures\zh",
-
-
+	
 #    $WallpaperResolution = ($env:WallpaperResolution, '1920x1080' | Select-Object -First 1),
 #    $WallpaperResolution = '1920x1200',
     $WallpaperResolution = '1920x1080',
@@ -29,6 +28,10 @@ Param (
 #$date = Get-Date -Format 'yyyy_MM_dd_HH_mm_ss_'
 $date = Get-Date -Format 'yyyy_MM_dd_'
 
+#自动创建默认文件夹
+if (!(Test-Path $WallpaperPath -PathType Container)) { 
+    New-Item -ItemType Directory -Force -Path $WallpaperPath
+} 
 
 $WallpaperPath1 = $WallpaperPath+'\wallpaper'+$date+'zh'+'.jpg'
 # Download wallpaper
